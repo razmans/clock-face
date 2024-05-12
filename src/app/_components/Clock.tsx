@@ -10,8 +10,6 @@ export default function Clock() {
     const [day, setDay] = useState('00');
     const [month, setMonth] = useState('00');
     const [year, setYear] = useState('00');
-    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
   useEffect(() => {
 
     setInterval(() => {
@@ -38,16 +36,12 @@ export default function Clock() {
   }, [])
   return (
     <div>
-        <div className="text-9xl container mx-auto p-6 grid grid-cols-5 gap-4">
-        <div className="col-span-1 flex flex-col p-4">{hour}</div> <div className="ml-12">:</div> <div className="col-span-1 flex flex-col p-4 mr-5">{minute}</div> <div className="ml-12">:</div> <div className="col-span-1 flex flex-col p-4">{second}</div>
+        <div className="text-9xl container mx-auto p-6 grid grid-cols-5">
+        <div className="col-span-1 flex flex-col p-4 w-20px">{hour}</div> <div className="ml-12">:</div> <div className="col-span-1 flex flex-col p-4 mr-5 w-20px">{minute}</div> <div className="ml-12">:</div> <div className="col-span-1 flex flex-col p-4 w-20px">{second}</div>
         </div>
       <div className="flex items-center text-6xl justify-center align-middle">
             {`${day}/${month}/${year}`}
         </div>
-        <br/><br/>
-      <div className="flex items-center text-xl justify-center align-middle">
-        {timeZone}
-      </div>
 
     </div>
   );
